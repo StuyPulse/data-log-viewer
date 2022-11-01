@@ -17,4 +17,4 @@ jobs:
           pip install -r requirements.txt
       - name: Build package with PyInstaller
         run: |
-          pyinstaller -n 'Data Log Viewer' --windowed --icon icons/icon.ico app.py
+          pyinstaller -n 'Data Log Viewer' --windowed --icon images/icon.ico app.py
