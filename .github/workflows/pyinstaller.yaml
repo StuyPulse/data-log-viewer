@@ -22,7 +22,8 @@ jobs:
         run: |
           ls
           ls build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: executable
-          path: build/Data Log Viewer
+          ls dist
+      #- uses: actions/upload-artifact@v3
+        #with:
+          #name: executable
+          #path: build/Data Log Viewer
