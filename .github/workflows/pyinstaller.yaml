@@ -18,3 +18,10 @@ jobs:
       - name: Build package with PyInstaller
         run: |
           pyinstaller -n 'Data Log Viewer' --windowed --icon images/icon.ico app.py
+      - name: ls
+        run: |
+          ls build dist
+      - uses: actions/upload-artifact@v3
+        with:
+          name: executable
+          path: dist/Data Log Viewer.exe
