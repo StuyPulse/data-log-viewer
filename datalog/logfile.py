@@ -79,7 +79,12 @@ class LogFile:
                 continue
             s.append([latest_timestamp, s[-1][1]])
             for record in s:
-                record[0] = start_datetime + timedelta(seconds=record[0])
+                try:
+                    record[0] = start_datetime + timedelta(seconds=record[0])
+                except OverflowError:
+                    # Handle inexplicably large timestamps like 18446744069177.88. Since they only seem to appear at the
+                    # beginning of log files, just treat them as zero.
+                    record[0] = start_datetime
 
     def list_entries(self):
         return sorted(self._entries.values(), key=attrgetter('name'))
